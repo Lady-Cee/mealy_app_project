@@ -1,0 +1,1 @@
+export const COLORS = {primary:'#3b8132', white:'#fff', green:'#4EA837'};
