@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MyCartScreen from '../screens/MyCartScreen';
 import FavouriteScreen from '../screens/FavouriteScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-// import HomeScreen from '../screens/HomeScreen';
 import BottomTabs from './BottomTabs';
 
 const Stack = createNativeStackNavigator();
@@ -18,6 +17,7 @@ const StackScreen = () => {
         <Stack.Screen name="MyCartScreen" component={MyCartScreen} />
         <Stack.Screen name="FavouriteScreen" component={FavouriteScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> 
+     
         
   </Stack.Navigator>
   )

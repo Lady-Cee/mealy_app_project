@@ -2,7 +2,6 @@ import { StyleSheet, Text, TextInput, View, SafeAreaView, Button,StatusBar , Dim
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import  {Controller, useForm} from 'react-hook-form';
 
 
 const COLORS = {primary:'#3b8132', white:'#fff', green:'#4EA837', gray:'#6c757d'};
@@ -10,9 +9,46 @@ const {width, height} = Dimensions.get('screen');
 
 const WelcomeScreen = () => {
     const navigation = useNavigation();
-    const [email, onChangeEmail] = useState('');
-    const [passwordVisible, onChangePasswordVisible] = useState(true);
-    const{control, handleSubmit} = useForm();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState("");
+
+ 
+  function validateForm(email, password) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setEmailError('Invalid email address.');
+      return false;
+    } else if (password.length < 8) {
+      setPasswordError('Password should be at least 8 characters long.');
+      return false;
+    }
+    return true;
+  }
+
+  function handleEmailChange(email){
+    setEmail(email);
+    setEmailError(" ");
+  }
+
+  function handlePasswordChange(password){
+    setPassword(password);
+    setPasswordError(" ");
+  }
+
+  function handleWelcome(){
+    setEmailError(" ");
+    setPasswordError(" ");
+
+  const isValid = validateForm(email, password);
+    if (isValid) {
+    navigation.navigate('LocationScreen')
+     }
+  }
+
+
 
     
     return (
@@ -21,25 +57,25 @@ const WelcomeScreen = () => {
        <Text style={{fontSize:30, marginLeft:20, }}>Welcome Back </Text>
        <Text style={{fontSize:14, marginLeft:20, color:COLORS.gray,lineHeight:15}}>Let's get you back in </Text>
        
-       <Controller
-       control={control}
-       name="Enter email"
-       render = {() =>  <TextInput 
+       <TextInput 
         style={styles.input}
         placeholder="Enter email"
         placeholderTextColor={'#dad7cd'}
-        onChangeText={onChangeEmail}
-        value={email}  /> }
-       
-      
+        onChangeText={handleEmailChange}
+        value={email}          
       
        />
+        {emailError !== '' && <Text style={styles.errorText}>{emailError}</Text>}
+
        <TextInput 
         style={styles.input}
         placeholder="Enter password"
-        secureTextEntry={passwordVisible}
-        placeholderTextColor={'#dad7cd'}        
+        secureTextEntry={true}
+        placeholderTextColor={'#dad7cd'}     
+         onChangeText={handlePasswordChange}
+        value={password}   
        />
+        {passwordError !== '' && <Text style={styles.errorText}>{passwordError}</Text>}
 
        
 
@@ -65,7 +101,7 @@ const WelcomeScreen = () => {
             fontWeight:"bold", 
             fontSize:15, 
             color:COLORS.white}}
-            onPress = {() => navigation.navigate('LocationScreen')}>Login</Text>
+            onPress = {handleWelcome}>Login</Text>
         </TouchableOpacity>
       </View>
 
@@ -147,4 +183,11 @@ const styles = StyleSheet.create({
     alignItems:"center",
     
 },
+errorText: {
+    color: 'red',
+    marginLeft: 30,
+    marginTop: -5,
+    fontSize: 12,
+    fontStyle:"italic"
+  },
 })

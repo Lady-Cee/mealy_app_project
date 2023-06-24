@@ -13,10 +13,25 @@ import PasswordScreen from './src/screens/PasswordScreen';
 import ResetPassword from './src/screens/ResetPassword';
 import StackScreen from './src/navigation/StackScreen';
 import BottomTabs from './src/navigation/BottomTabs';
+import AllMenuScreen from './src/screens/AllMenuScreen';
+import DeliveryScreen from './src/screens/DeliveryScreen';
+import RestaurantScreen from './src/screens/RestaurantScreen';
+import FoodScreen from './src/screens/FoodScreen';
+import LocalDishesScreen from './src/screens/LocalDishesScreen';
+import ContinentalScreen from './src/screens/ContinentalScreen';
+import DrinkScreen from './src/screens/DrinkScreen';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import ReserveScreen from './src/screens/ReserveScreen';
+import OgbonoScreen from './src/screens/OgbonoScreen';
+import CheckoutScreen from './/src/screens/CheckoutScreen';
+import MyCartScreen from './src/screens/MyCartScreen';
+import PaymentScreen from './src/screens/PaymentScreen';
+import DelComponentScreen from './src/screens/DelComponentScreen';
+import PickComponentScreen from './src/screens/PickComponentScreen';
+import ThankYouScreen from './src/screens/ThankYouScreen';
+import OrderTrackScreen from './src/screens/OrderTrackScreen'
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,6 +51,24 @@ export default function App() {
       <Stack.Screen name='PasswordScreen' component={PasswordScreen}/>
       <Stack.Screen name='ResetPassword' component={ResetPassword}/>
       <Stack.Screen name='StackScreen' component={StackScreen}/>
+      <Stack.Screen name='AllMenuScreen' component={AllMenuScreen}/>
+      <Stack.Screen name='DeliveryScreen' component={DeliveryScreen}/>
+      <Stack.Screen name='RestaurantScreen' component={RestaurantScreen}/>
+      <Stack.Screen name='FoodScreen' component={FoodScreen}/>
+      <Stack.Screen name='LocalDishesScreen' component={LocalDishesScreen}/>
+      <Stack.Screen name='ContinentalScreen' component={ContinentalScreen}/>
+      <Stack.Screen name='DrinkScreen' component={DrinkScreen}/>
+      <Stack.Screen name='ReserveScreen' component={ReserveScreen}/>
+      <Stack.Screen name='OgbonoScreen' component={OgbonoScreen}/>
+      <Stack.Screen name='CheckoutScreen' component={CheckoutScreen}/>
+      <Stack.Screen name='MyCartScreen' component={MyCartScreen}/>
+      <Stack.Screen name='PaymentScreen' component={PaymentScreen}/>
+      <Stack.Screen name='DelComponentScreen' component={DelComponentScreen}/>
+      <Stack.Screen name='PickComponentScreen' component={PickComponentScreen}/>
+      <Stack.Screen name='ThankYouScreen' component={ThankYouScreen}/>
+      <Stack.Screen name='HomeScreen' component={HomeScreen}/>
+      <Stack.Screen name='OrderTrackScreen' component={OrderTrackScreen}/>
+      
     </Stack.Navigator>
   </NavigationContainer>
    )

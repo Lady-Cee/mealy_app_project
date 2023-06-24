@@ -34,7 +34,7 @@ const PasswordScreen = () => {
         placeholderTextColor={'#dad7cd'}
         onChangeText={onChangeNumber}
         value={number}  
-        keyboardType='phone-pad'
+        
   />
   
   <View style={{marginTop:30}}>   
