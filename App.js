@@ -32,6 +32,12 @@ import DelComponentScreen from './src/screens/DelComponentScreen';
 import PickComponentScreen from './src/screens/PickComponentScreen';
 import ThankYouScreen from './src/screens/ThankYouScreen';
 import OrderTrackScreen from './src/screens/OrderTrackScreen'
+import TopTabs from './src/navigation/TopTabs';
+import ProfileDetailsScreen from './src/screens/ProfileDetailsScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import HelpScreen from './src/screens/HelpScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import FaqScreen from './src/screens/FaqScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -68,6 +74,12 @@ export default function App() {
       <Stack.Screen name='ThankYouScreen' component={ThankYouScreen}/>
       <Stack.Screen name='HomeScreen' component={HomeScreen}/>
       <Stack.Screen name='OrderTrackScreen' component={OrderTrackScreen}/>
+      <Stack.Screen name='TopTabs' component={TopTabs}/>
+      <Stack.Screen name='ProfileScreen' component={ProfileScreen}/>
+      <Stack.Screen name='ProfileDetailsScreen' component={ProfileDetailsScreen}/>
+      <Stack.Screen name='HelpScreen' component={HelpScreen}/>
+      <Stack.Screen name='SettingsScreen' component={SettingsScreen}/>
+      <Stack.Screen name='FaqScreen' component={FaqScreen}/>
       
     </Stack.Navigator>
   </NavigationContainer>

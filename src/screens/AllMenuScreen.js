@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 const COLORS = { primary: '#3b8132', white: '#fff', green: '#4EA837', gray: '#6c757d' };
 const { width, height } = Dimensions.get('screen');
 
+
 const AllMenuScreen = () => {
   const navigation = useNavigation("");
   return (
@@ -26,6 +27,8 @@ const AllMenuScreen = () => {
         </View>
         </TouchableOpacity>
 
+        
+
         <View style={{flexDirection:'row', marginTop:20, marginLeft:30, marginRight:30,justifyContent:'space-between'}}>
           <Text>All </Text>
           <Text>Local </Text>
@@ -33,6 +36,15 @@ const AllMenuScreen = () => {
           <Text>Drinks </Text>
         </View>
 
+        <Text style={{fontSize:10, marginTop: 20, marginLeft:35}}>Recent Searches</Text>
+        <View style={{flexDirection:'row', marginLeft:30, marginTop:20 }}>
+          <Image
+            source={require('../../assets/HomeScreenList2/clk1.png')}
+            style={{width:20, height:20,}}/>
+            <Text style={{fontSize:12, marginLeft:30, marginTop:2}}>Drinks </Text>
+        </View>
+
+        <View style={{borderWidth:1, marginTop:10}}/>
     </SafeAreaView>
   )
 }

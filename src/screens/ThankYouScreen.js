@@ -33,7 +33,7 @@ const ThankYouScreen = () => {
 
         <View style={{marginTop:25}}>
                 <TouchableOpacity style={{ height: 50, width: width * 0.9, alignSelf: 'center', borderRadius: 50, backgroundColor: COLORS.white, justifyContent: 'center', alignItems: 'center' , borderWidth:1,borderColor:COLORS.green}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 15, color: COLORS.green }} onPress={() => navigation.navigate('HomeScreen')}>Order something else </Text>
+                  <Text style={{ fontWeight: 'bold', fontSize: 15, color: COLORS.green }} onPress={() => navigation.navigate('Home')}>Order something else </Text>
                 </TouchableOpacity>
            </View>
 
