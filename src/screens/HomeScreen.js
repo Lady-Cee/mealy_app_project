@@ -24,13 +24,15 @@ const Tab = createBottomTabNavigator()
 
 const data = [
   {
-    id:'1',
+    id:'1',  
+    title: 'Foods and drinks',
     image: require('../../assets/HomescreenList1/food1a.png'),
     screen: 'AllMenuScreen'
   },
 
   {
     id:'2',
+    title: 'Reataurants',
     image:require('../../assets/HomescreenList1/food1c.png'),
     screen: 'RestaurantScreen'
   },
@@ -128,7 +130,10 @@ const HomeScreen = () => {
                     <Image
                         style={{width:'100%', height:'100%', resizeMode:'contain'}}
                         source={item.image} />
-                  </View>
+              </View>
+              <View style={{marginTop:-60, alignItems:'center'}}>
+                <Text style={{fontSize:16, color:'white'}}>{item.title}</Text>
+              </View>
           
           </TouchableOpacity>
         )}

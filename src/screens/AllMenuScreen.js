@@ -1,9 +1,14 @@
 import { StyleSheet, Text, StatusBar, SafeAreaView,Dimensions,View, Image, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import AllScreen from './AllScreen';
+import TopTabs from '../navigation/TopTabs';
+// import TopTabs from '../navigation/TopTabs';
 const COLORS = { primary: '#3b8132', white: '#fff', green: '#4EA837', gray: '#6c757d' };
 const { width, height } = Dimensions.get('screen');
+
+// const Tab = createMaterialTopTabNavigator();
 
 
 const AllMenuScreen = () => {
@@ -21,30 +26,16 @@ const AllMenuScreen = () => {
                   placeholder='Search dishes, restaurants or drinks'/>     
        
       </View>
-        <TouchableOpacity  onPress={() => navigation.navigate('HomeScreen')}>
+        <TouchableOpacity  onPress={() => navigation.navigate('AllMenuScreen')}>
         <View style={{position:'absolute', top:-30, right:30}}>
             <Text>Cancel </Text> 
         </View>
         </TouchableOpacity>
-
+<View style ={{marginBottom:20}}/>
+      <TopTabs/>
         
 
-        <View style={{flexDirection:'row', marginTop:20, marginLeft:30, marginRight:30,justifyContent:'space-between'}}>
-          <Text>All </Text>
-          <Text>Local </Text>
-          <Text>Continental </Text>
-          <Text>Drinks </Text>
-        </View>
-
-        <Text style={{fontSize:10, marginTop: 20, marginLeft:35}}>Recent Searches</Text>
-        <View style={{flexDirection:'row', marginLeft:30, marginTop:20 }}>
-          <Image
-            source={require('../../assets/HomeScreenList2/clk1.png')}
-            style={{width:20, height:20,}}/>
-            <Text style={{fontSize:12, marginLeft:30, marginTop:2}}>Drinks </Text>
-        </View>
-
-        <View style={{borderWidth:1, marginTop:10}}/>
+     
     </SafeAreaView>
   )
 }

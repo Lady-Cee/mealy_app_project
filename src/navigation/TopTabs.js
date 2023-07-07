@@ -1,37 +1,57 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import AllMenuScreen from '../screens/AllMenuScreen';
+import AllScreen from '../screens/AllScreen';
 import LocalDishesScreen from '../screens/LocalDishesScreen';
 import ContinentalScreen from '../screens/ContinentalScreen';
 import DrinkScreen from '../screens/DrinkScreen';
 
-const Tabs = createMaterialTopTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 const TopTabs = () => {
   return (
-    <Tabs.Navigator initialRouteName='AllMenuScreen'>
-      <Tabs.Screen 
-        name='main' 
-        component={AllMenuScreen}
-        options={{ tabBarLabel: 'All' }}
-      />
-      <Tabs.Screen
-        name='LocalDishesScreen' 
-        component={LocalDishesScreen}
-        options={{ tabBarLabel: 'Local' }}
-      />
-      <Tabs.Screen 
-        name='ContinentalScreen' 
-        component={ContinentalScreen}
-        options={{ tabBarLabel: 'Continental' }}
-      />
-      <Tabs.Screen 
-        name='DrinkScreen' 
-        component={DrinkScreen}
-        options={{ tabBarLabel: 'Drinks' }}
-      />
-    </Tabs.Navigator>
+    <Tab.Navigator 
+    initialRouteName='AllScreen'
+    screenOptions={{
+    
+      // tabBarTintColor:'black',
+      // tabBarActiveTintColor:'green',
+      tabBarIndicatorStyle:{
+        backgroundColor: 'black',
+        height: 2,
+      },
+      tabBarScrollEnabled: false,
+      tabBarLabelStyle: {fontSize: 12, textTransform:"none", width:"100%", height:"70%", textAlign:"auto"},
+      // tabBarItemStyle: { width: 90, },
+      // tabBarStyle: {
+      //   height: 70,       
+      //   // backgroundColor: '#c21a0c',
+      // },
+    }} >
+
+    <Tab.Screen 
+      name='All' 
+      component={AllScreen}
+      options={{ tabBarLabel: 'All '}}
+    />
+    <Tab.Screen
+      name='LocalDishesScreen' 
+      component={LocalDishesScreen}
+      options={{ tabBarLabel: 'Local ' }}
+    />
+    <Tab.Screen 
+      name='ContinentalScreen' 
+      component={ContinentalScreen}
+      options={{ tabBarLabel: ' Continental ' }}
+    />
+    <Tab.Screen 
+      name='DrinkScreen' 
+      component={DrinkScreen}
+      options={{ tabBarLabel: 'Drinks ' ,
+      
+    }}
+    />
+  </Tab.Navigator>
   );
 };
 

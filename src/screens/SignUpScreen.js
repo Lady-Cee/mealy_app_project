@@ -222,11 +222,11 @@ const SignUpScreen = () => {
         }}
       >
         <TouchableOpacity style={styles.btn}>
-          <Text style={{ fontSize: 12, color:'white' }}> Sign up with Facebook </Text>
+          <Text style={{ fontSize: 12, color:'black' }}> Sign up with Facebook </Text>
         </TouchableOpacity>
         <View style={{ marginLeft: 10 }} />
         <TouchableOpacity style={styles.btn}>
-          <Text style={{ fontSize: 12, color:'white' }}>Sign up with Google </Text>
+          <Text style={{ fontSize: 12, color:'black' }}>Sign up with Google </Text>
         </TouchableOpacity>
       </View>
 
@@ -260,10 +260,11 @@ const styles = StyleSheet.create({
   btn: {
     width: width * 0.43,
     height: 35,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.white,
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
   },
   btnLast: {
     width: width * 0.8,

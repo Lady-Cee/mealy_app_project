@@ -38,6 +38,7 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import HelpScreen from './src/screens/HelpScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import FaqScreen from './src/screens/FaqScreen';
+import AllScreen from './src/screens/AllScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -80,6 +81,7 @@ export default function App() {
       <Stack.Screen name='HelpScreen' component={HelpScreen}/>
       <Stack.Screen name='SettingsScreen' component={SettingsScreen}/>
       <Stack.Screen name='FaqScreen' component={FaqScreen}/>
+      <Stack.Screen name='AllScreen' component={AllScreen}/>
       
     </Stack.Navigator>
   </NavigationContainer>

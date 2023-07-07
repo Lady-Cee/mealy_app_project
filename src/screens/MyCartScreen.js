@@ -29,18 +29,18 @@ const data = [
     promoDiscount: 0,
     count: 1
   },
-  {
-    id: 2,
-    title: 'Okro soup',
-    price: 2800,
-    rating: '3.5 ',
-    star: require('../../assets/cartlist/star.png'),
-    image: require('../../assets/cartlist/ogbono.png'),
-    cartTotal: 2800,
-    delivery: 800,
-    promoDiscount: 0,
-    count: 1
-  },
+  // {
+  //   id: 2,
+  //   title: 'Okro soup',
+  //   price: 2800,
+  //   rating: '3.5 ',
+  //   star: require('../../assets/cartlist/star.png'),
+  //   image: require('../../assets/cartlist/ogbono.png'),
+  //   cartTotal: 2800,
+  //   delivery: 800,
+  //   promoDiscount: 0,
+  //   count: 1
+  // },
 ];
 
 const MyCartScreen = () => {
@@ -84,43 +84,27 @@ const MyCartScreen = () => {
     return total * item.count;
   };
 
-  const deleteItem = (item) => {
-    Alert.alert(
-      'Are you sure?',
-      'Do you really want to delete this item?',
-      [
-        {
-          text: 'Cancel',
-        },
-        {
-          text: 'Yes',
-          onPress: () => {
-            const updatedCartData = cartData.filter((cartItem) => cartItem.id !== item.id);
-            setCartData(updatedCartData);
+   
+    const deleteItem = (item) => {
+      Alert.alert(
+        'Are you sure?',
+        'Do you want really want to delete this item?',
+        [
+          {
+            text: 'Cancel',
           },
-        },
-      ],
-      { cancelable: false }
-    );
-  };
-
-  const addMoreItems = () => {
-    const newItem = {
-      id: cartData.length + 1,
-      title: 'New Item',
-      price: 1000,
-      rating: '4.5',
-      star: require('../../assets/cartlist/star.png'),
-      image: require('../../assets/cartlist/ogbono.png'),
-      cartTotal: 1000,
-      delivery: 200,
-      promoDiscount: 0,
-      count: 1
+          {
+            text: 'Yes',
+            // onPress: () => {
+            //   const updatedCartData = cartData.filter((cartItem) => cartItem.id !== item.id);
+            //   setCartData(updatedCartData);
+            // },
+          },
+        ],
+        { cancelable: false }
+      );
     };
-
-    setCartData([...cartData, newItem]);
-  };
-
+   
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <StatusBar backgroundColor={COLORS.white} />
@@ -141,7 +125,7 @@ const MyCartScreen = () => {
                 <TouchableOpacity onPress={() => incrementCount(item)}>
                   <Image source={require('../../assets/cartlist/plus.png')} style={{ width: 15, height: 15, marginBottom: 10 }} />
                 </TouchableOpacity>
-                <Text style={{ fontSize: 12, marginBottom: 8, marginLeft: 1 }}>{item.count}</Text>
+                <Text style={{ fontSize: 12, marginBottom: 8, marginLeft:1 }}> {item.count}</Text>
                 <TouchableOpacity onPress={() => decrementCount(item)}>
                   <Image source={require('../../assets/cartlist/minus.png')} style={{ width: 15, height: 15 }} />
                 </TouchableOpacity>
@@ -156,15 +140,16 @@ const MyCartScreen = () => {
                 </View>
               </View>
               <View style={{ marginTop: 60, marginLeft: 30 }}>
-                <TouchableOpacity onPress={() => deleteItem(item)}>
-                  <Image source={require('../../assets/cartlist/delete.png')} style={{ width: 20, height: 20 }} />
-                </TouchableOpacity>
+                <TouchableOpacity onPress={() => deleteItem(item)}>         
+                    <Image source={require('../../assets/cartlist/delete.png')} style={{ width: 20, height: 20 }} />
+                 </TouchableOpacity>
+
               </View>
             </View>
-            <TouchableOpacity onPress={addMoreItems} style={{ flexDirection: 'row', width: 130, height: 40, borderColor: COLORS.green, borderRadius: 3, borderWidth: 2, marginLeft: 200, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ flexDirection: 'row', width: 130, height: 40, borderColor: COLORS.green, borderRadius: 3, borderWidth: 2, marginLeft: 200, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
               <Image source={require('../../assets/cartlist/plus.png')} style={{ width: 10, height: 10, tintColor: COLORS.green, marginRight: 5 }} />
               <Text style={{ fontSize: 12, color: COLORS.green }}>Add more items </Text>
-            </TouchableOpacity>
+            </View>
 
             <View style={{ flexDirection: 'row', position: 'absolute', top: 250, marginLeft: 20 }}>
               <Text>Cart Total </Text>
@@ -179,7 +164,7 @@ const MyCartScreen = () => {
               <Text>Promo Discount </Text>
               <Text style={{ marginLeft: 130 }}>#{formatPriceWithCommas(calculatePromoDiscount(item))} </Text>
             </View>
-            <View style={{ borderTopWidth: 1, width: width * 0.9, alignSelf: 'center', position: 'absolute', top: 400, borderColor: COLORS.gray }} />
+            <View style={{ borderTopWidth: 1, width: width * 0.9, alignSelf: 'center', position:'absolute', top:400, borderColor: COLORS.gray }} />
 
             <View style={{ flex: 1, flexDirection: 'row', marginLeft: 20, position: 'absolute', top: 420 }}>
               <Text>Grand Total </Text>
