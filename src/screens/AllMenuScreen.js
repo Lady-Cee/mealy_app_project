@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import AllScreen from './AllScreen';
-import TopTabs from '../navigation/TopTabs';
+// import TopTabs from '../navigation/TopTabs';
 // import TopTabs from '../navigation/TopTabs';
 const COLORS = { primary: '#3b8132', white: '#fff', green: '#4EA837', gray: '#6c757d' };
 const { width, height } = Dimensions.get('screen');
@@ -17,7 +17,7 @@ const AllMenuScreen = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
     <StatusBar backgroundColor={COLORS.white} />
 
-    <View style={{ height:40, marginTop:15, borderColor:COLORS.gray, alignSelf:'flex-start',width: width*0.7,borderWidth:1, marginLeft:15,flexDirection:'row', borderRadius:50}}>
+    {/* <View style={{ height:40, marginTop:15, borderColor:COLORS.gray, alignSelf:'flex-start',width: width*0.7,borderWidth:1, marginLeft:15,flexDirection:'row', borderRadius:50}}>
                <View style={{marginLeft: 15, justifyContent:"center"}}>
                  <Image source={require('../../assets/HomeScreenList2/search-interface-symbol.png')}
                    style={{width:20, height:20, tintColor:'gray'}}/>   
@@ -32,7 +32,7 @@ const AllMenuScreen = () => {
         </View>
         </TouchableOpacity>
 <View style ={{marginBottom:20}}/>
-      <TopTabs/>
+      <TopTabs/> */}
         
 
      

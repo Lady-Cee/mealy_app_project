@@ -1,13 +1,13 @@
 import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  View,
-  Alert,
-  Dimensions,
-  StatusBar,
-  TextInput,
+StyleSheet,
+Text,
+SafeAreaView,
+TouchableOpacity,
+View,
+Alert,
+Dimensions,
+StatusBar,
+TextInput,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
@@ -15,35 +15,55 @@ import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInW
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDxX2drB49AwfRGXI0nqiOzjG5sjpOXywY",
-  authDomain: "mealyapp-9fdb6.firebaseapp.com",
-  projectId: "mealyapp-9fdb6",
-  storageBucket: "mealyapp-9fdb6.appspot.com",
-  messagingSenderId: "763290289507",
-  appId: "1:763290289507:web:0609aa5e70d014e02fff56"
+apiKey: "AIzaSyDxX2drB49AwfRGXI0nqiOzjG5sjpOXywY",
+authDomain: "mealyapp-9fdb6.firebaseapp.com",
+projectId: "mealyapp-9fdb6",
+storageBucket: "mealyapp-9fdb6.appspot.com",
+messagingSenderId: "763290289507",
+appId: "1:763290289507:web:0609aa5e70d014e02fff56"
 };
 
 const app = initializeApp(firebaseConfig);
+
+const BASE_URL = " https://mealy-app-u2hp.onrender.com/api/v1/user";
 
 const { width, height } = Dimensions.get('screen');
 
 const COLORS = { primary: '#3b8132', white: '#fff', green: '#4EA837' };
 
 const SignUpScreen = () => {
-  const [text, onChangeText] = useState('');
-  const [number, onChangeNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [reenterPassword, setReenterPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [reenterPasswordError, setReenterPasswordError] = useState('');
-  const navigation = useNavigation();
 
-  function validateForm(email, password) {
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const [text, onChangeText] = useState('');
+const [number, onChangeNumber] = useState('');
+const [email, setEmail] = useState('');
+const [name, onChangeName] = useState('');
+const [password, setPassword] = useState('');
+const [reenterPassword, setReenterPassword] = useState('');
+const [emailError, setEmailError] = useState('');
+const [passwordError, setPasswordError] = useState('');
+const [reenterPasswordError, setReenterPasswordError] = useState('');
+const navigation = useNavigation();
 
-    if (!emailRegex.test(email)) {
+const register = async(name, email, number, password , reenterPassword) => {
+if ( validateForm(email, password)){
+const response = await axios.patch(`${BASE_URL}/SignUp`,{
+name,
+password,
+number,
+email,
+reenterPassword
+
+      })
+      const registrationResponse = response.data
+      console.log(registrationResponse)
+    }
+
+}
+
+function validateForm(email, password) {
+const emailRegex = /^(?=._[a-z])(?=._[A-Z])(?=._[0-9])(?=._[!@#$%]).{8,24}$/;
+
+    if ((emailRegex.test(email)) !== true) {
       setEmailError('Invalid email address.');
       return false;
     } else if (password.length < 8) {
@@ -54,27 +74,28 @@ const SignUpScreen = () => {
       return false;
     }
     return true;
-  }
 
-  function handleEmailChange(email) {
-    setEmail(email);
-    setEmailError('');
-  }
+}
 
-  function handlePasswordChange(password) {
-    setPassword(password);
-    setPasswordError('');
-  }
+function handleEmailChange(email) {
+setEmail(email);
+setEmailError('');
+}
 
-  function handleReenterPasswordChange(reenterPassword) {
-    setReenterPassword(reenterPassword);
-    setReenterPasswordError('');
-  }
+function handlePasswordChange(password) {
+setPassword(password);
+setPasswordError('');
+}
 
-  function handleSignUp() {
-    setEmailError('');
-    setPasswordError('');
-    setReenterPasswordError('');
+function handleReenterPasswordChange(reenterPassword) {
+setReenterPassword(reenterPassword);
+setReenterPasswordError('');
+}
+
+function handleSignUp() {
+setEmailError('');
+setPasswordError('');
+setReenterPasswordError('');
 
     var isValid = validateForm(email, password);
     if (isValid) {
@@ -101,19 +122,20 @@ const SignUpScreen = () => {
           // Handle user creation error
         });
     }
-  }
 
-  return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-      <StatusBar backgroundColor={COLORS.white} />
-      <Text style={{ fontSize: 30, marginLeft: 20 }}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter full name"
-        placeholderTextColor={'#dad7cd'}
-        onChangeText={onChangeText}
-        value={text}
-      />
+}
+
+return (
+<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+<StatusBar backgroundColor={COLORS.white} />
+<Text style={{ fontSize: 30, marginLeft: 20 }}>Sign Up</Text>
+<TextInput
+style={styles.input}
+placeholder="Enter full name"
+placeholderTextColor={'#dad7cd'}
+onChangeText={onChangeName}
+value={name}
+/>
 
       <TextInput
         style={styles.input}
@@ -177,7 +199,7 @@ const SignUpScreen = () => {
       )}
 
       <View style={{ marginTop: 80 }}>
-        <TouchableOpacity style={[styles.btnLast]} onPress={handleSignUp}>
+        <TouchableOpacity style={[styles.btnLast]} onPress={register}>
           <Text
             style={{
               fontWeight: 'bold',
@@ -246,40 +268,41 @@ const SignUpScreen = () => {
         </View>
       </View>
     </SafeAreaView>
-  );
+
+);
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 50,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    borderColor: '#ccd5ae',
-  },
-  btn: {
-    width: width * 0.43,
-    height: 35,
-    backgroundColor: COLORS.white,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-  },
-  btnLast: {
-    width: width * 0.8,
-    height: 45,
-    backgroundColor: COLORS.green,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  errorText: {
-    color: 'red',
-    fontSize: 12,
-    marginLeft: 20,
-  },
+input: {
+height: 50,
+margin: 12,
+borderWidth: 1,
+padding: 10,
+borderColor: '#ccd5ae',
+},
+btn: {
+width: width _ 0.43,
+height: 35,
+backgroundColor: COLORS.white,
+borderRadius: 50,
+justifyContent: 'center',
+alignItems: 'center',
+borderWidth: 1,
+},
+btnLast: {
+width: width _ 0.8,
+height: 45,
+backgroundColor: COLORS.green,
+borderRadius: 50,
+justifyContent: 'center',
+alignItems: 'center',
+alignSelf: 'center',
+},
+errorText: {
+color: 'red',
+fontSize: 12,
+marginLeft: 20,
+},
 });
 
 export default SignUpScreen;

@@ -11,7 +11,7 @@ const Tab = createMaterialTopTabNavigator();
 const TopTabs = () => {
   return (
     <Tab.Navigator 
-    initialRouteName='AllScreen'
+    initialRouteName='AllMenuScreen'
     screenOptions={{
     
       // tabBarTintColor:'black',
@@ -31,7 +31,7 @@ const TopTabs = () => {
 
     <Tab.Screen 
       name='All' 
-      component={AllScreen}
+      // component={AllScreen}
       options={{ tabBarLabel: 'All '}}
     />
     <Tab.Screen

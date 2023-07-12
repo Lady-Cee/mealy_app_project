@@ -102,7 +102,7 @@ const HomeScreen = () => {
           </View>
   
        </View>
-      <TouchableOpacity onPress={() => navigation.navigate('AllMenuScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('AllScreen')}>
       <View style={styles.search}>
         <View style={{flexDirection:'row', position:'absolute', top:15}}>
             <View style={{marginLeft:-20}}>
