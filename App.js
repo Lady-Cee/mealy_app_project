@@ -13,7 +13,7 @@ import PasswordScreen from './src/screens/PasswordScreen';
 import ResetPassword from './src/screens/ResetPassword';
 import StackScreen from './src/navigation/StackScreen';
 import BottomTabs from './src/navigation/BottomTabs';
-import AllMenuScreen from './src/screens/AllMenuScreen';
+import AllDrinkScreen from './src/screens/AllDrinkScreen';
 import DeliveryScreen from './src/screens/DeliveryScreen';
 import RestaurantScreen from './src/screens/RestaurantScreen';
 import FoodScreen from './src/screens/FoodScreen';
@@ -62,7 +62,7 @@ export default function App() {
       <Stack.Screen name='PasswordScreen' component={PasswordScreen}/>
       <Stack.Screen name='ResetPassword' component={ResetPassword}/>
       <Stack.Screen name='StackScreen' component={StackScreen}/>
-      <Stack.Screen name='AllMenuScreen' component={AllMenuScreen}/>
+      <Stack.Screen name='AllDrinkScreen' component={AllDrinkScreen}/>
       <Stack.Screen name='DeliveryScreen' component={DeliveryScreen}/>
       <Stack.Screen name='RestaurantScreen' component={RestaurantScreen}/>
       <Stack.Screen name='FoodScreen' component={FoodScreen}/>
@@ -90,6 +90,7 @@ export default function App() {
       <Stack.Screen name='JuiceScreen' component={JuiceScreen}/>
       <Stack.Screen name='WineScreen' component={WineScreen}/>
       <Stack.Screen name='BeerScreen' component={BeerScreen}/>
+      
       
     </Stack.Navigator>
   </NavigationContainer>

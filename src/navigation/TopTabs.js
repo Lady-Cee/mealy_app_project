@@ -1,17 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import AllScreen from '../screens/AllScreen';
-import LocalDishesScreen from '../screens/LocalDishesScreen';
-import ContinentalScreen from '../screens/ContinentalScreen';
-import DrinkScreen from '../screens/DrinkScreen';
+import SodaScreen from '../screens/SodaScreen';
+import WineScreen from '../screens/WineScreen';
+import JuiceScreen from '../screens/JuiceScreen';
+import BeerScreen from '../screens/BeerScreen';
+import AllDrinkScreen from '../screens/DrinkScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabs = () => {
   return (
     <Tab.Navigator 
-    initialRouteName='AllMenuScreen'
+    // initialRouteName='HomeScreen'
     screenOptions={{
     
       // tabBarTintColor:'black',
@@ -31,23 +32,30 @@ const TopTabs = () => {
 
     <Tab.Screen 
       name='All' 
-      // component={AllScreen}
-      options={{ tabBarLabel: 'All '}}
+      component={AllDrinkScreen}
+      // options={{ tabBarLabel: 'All '}}
     />
     <Tab.Screen
-      name='LocalDishesScreen' 
-      component={LocalDishesScreen}
-      options={{ tabBarLabel: 'Local ' }}
+      name='SodaScreen' 
+      component={SodaScreen}
+      options={{ tabBarLabel: 'Soda ' }}
     />
     <Tab.Screen 
-      name='ContinentalScreen' 
-      component={ContinentalScreen}
-      options={{ tabBarLabel: ' Continental ' }}
+      name='WineScreen' 
+      component={WineScreen}
+      options={{ tabBarLabel: ' Wine ' }}
     />
     <Tab.Screen 
-      name='DrinkScreen' 
-      component={DrinkScreen}
-      options={{ tabBarLabel: 'Drinks ' ,
+      name='JuiceScreen' 
+      component={JuiceScreen}
+      options={{ tabBarLabel: 'Juice' ,
+      
+    }}
+    />
+     <Tab.Screen 
+      name='BeerScreen' 
+      component={BeerScreen}
+      options={{ tabBarLabel: 'Beer' ,
       
     }}
     />

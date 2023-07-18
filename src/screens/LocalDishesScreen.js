@@ -2,12 +2,20 @@ import { StyleSheet, Text,TextInput, View, Dimensions, Image,StatusBar, Touchabl
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import LocalCategory from '../components/LocalCategory';
+import { useState } from 'react';
 
 const COLORS = {primary:'#3b8132', white:'#fff', green:'#4EA837', gray:'#6c757d'};
 const {width, height} = Dimensions.get('screen');
 
 const LocalDishesScreen = () => {
   const navigation = useNavigation("");
+
+  const [activeScreen, setActiveScreen] = useState('All');
+
+  const handleScreenPress = (screen) => {
+    setActiveScreen(screen);
+    navigation.navigate(`${screen}Screen`);
+  };
   return (
     <SafeAreaView    style={{flex:1,  backgroundColor:COLORS.white}}>
        <StatusBar backgroundColor={COLORS.white} />
@@ -53,13 +61,15 @@ const LocalDishesScreen = () => {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity >
                   <View style={{  
                       marginLeft:1,
-                      borderColor:"white",
                       height:50,
-                      borderWidth:1,
+                      backgroundColor: "#caf0f8",
+                      borderBottomWidth: 2,
+                      borderBottomColor:  "black" ,
                       width:100,
+                      marginBottom:10,
                       alignItems:"center",
                       justifyContent:"center"}}>
                   <Text  style={{color:"gray"}}>Local </Text>

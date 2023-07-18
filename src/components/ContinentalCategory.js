@@ -102,12 +102,13 @@ const styles = StyleSheet.create({
     imageContainer:{
         flexDirection:"row",
         // justifyContent:"space-between",
-        paddingHorizontal:15
+        // paddingHorizontal:15
+        marginLeft: 13
     },
     image:{
-        width:150,
+        width:160,
         aspectRatio:1,
-        marginBottom:20,
+        marginBottom:15,
         borderRadius:10
 
     },

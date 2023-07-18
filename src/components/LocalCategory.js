@@ -102,13 +102,16 @@ export default LocalCategory
 const styles = StyleSheet.create({
     imageContainer:{
         flexDirection:"row",
-        // justifyContent:"space-between",
-        paddingHorizontal:15
+        // justifyContent:"space-between"
+        marginLeft:13
+     
+        // paddingHorizontal:10,
+        
     },
     image:{
-        width:150,
+        width:160,
         aspectRatio:1,
-        marginBottom:20,
+        marginBottom:15,
         borderRadius:10
 
     },

@@ -69,10 +69,12 @@ const ContinentalScreen = () => {
                 <TouchableOpacity onPress={() => navigation.navigate('ContinentalScreen')}>
                   <View style={{  
                       marginLeft:3,
-                      borderColor:"white",
                       height:50,
-                      borderWidth:1,
-                      width:130,
+                      backgroundColor: "#caf0f8",
+                      borderBottomWidth: 2,
+                      borderBottomColor:  "black" ,
+                      marginBottom:10, 
+                      width:145,
                       alignItems:"center",
                       justifyContent:"center"}}>
                   <Text  style={{color:"gray"}}>Continental </Text>

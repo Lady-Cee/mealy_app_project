@@ -16,6 +16,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ExternalData from '../components/ExternalData';
 import HomeTrend from '../components/HomeTrend';
 import TrendingList from '../components/TrendingList';
+import TopTabs from '../navigation/TopTabs';
 
 const COLORS = {primary:'#3b8132', white:'#fff', green:'#4EA837', gray:'#6c757d'};
 const {width, height} = Dimensions.get('screen');
@@ -45,10 +46,11 @@ const HomeScreen = () => {
     <SafeAreaView
            style={{flex:1, alignItems:'center',  backgroundColor:COLORS.white}}>
           <StatusBar backgroundColor={COLORS.white}/>
-
+         
           <Text style={{marginTop:15, marginRight:250, fontSize:14}}>Deliver to </Text>
           <TouchableOpacity style={styles.deliver}
             onPress={() => navigation.navigate('DeliveryScreen')}>
+              
            
               <View style={{flexDirection:'row', position:'absolute', top:12}}>
                   <View style={{marginLeft: 10}}>
@@ -113,6 +115,8 @@ const HomeScreen = () => {
             <Text style={{color:COLORS.gray, fontSize:12}}> Search dishes, restaurants or drinks   </Text>
             </View>  
          </View> 
+
+       
             
       </View>
       </TouchableOpacity>
