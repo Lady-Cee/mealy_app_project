@@ -28,12 +28,12 @@ const data = [
     id:'1',  
     title: 'Foods and drinks',
     image: require('../../assets/HomescreenList1/food1a.png'),
-    screen: 'AllMenuScreen'
+    screen: 'FoodAndDrinkScreen'
   },
 
   {
     id:'2',
-    title: 'Reataurants',
+    title: 'Restaurants',
     image:require('../../assets/HomescreenList1/food1c.png'),
     screen: 'RestaurantScreen'
   },

@@ -26,7 +26,7 @@ const categories = [
         id: 4,
         title: 'Drinks',
         image: require('../../assets/HomescreenList1/drinks.png'),
-        screen: 'DrinkScreen'
+        screen: 'AllDrinkScreen'
     },
 ]
 

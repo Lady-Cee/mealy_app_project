@@ -1,8 +1,8 @@
-import { StyleSheet, Text,TextInput, View, Dimensions, Image,StatusBar, TouchableOpacity, SafeAreaView } from 'react-native'
+import { StyleSheet, Text,TextInput, View, Dimensions, Image,StatusBar, FlatList,TouchableOpacity, SafeAreaView } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import LocalCategory from '../components/LocalCategory';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 
 const COLORS = {primary:'#3b8132', white:'#fff', green:'#4EA837', gray:'#6c757d'};
 const {width, height} = Dimensions.get('screen');
@@ -10,12 +10,110 @@ const {width, height} = Dimensions.get('screen');
 const LocalDishesScreen = () => {
   const navigation = useNavigation("");
 
-  const [activeScreen, setActiveScreen] = useState('All');
+//   const DATA = [
+//     {
+//         id: 1,
+//         title: 'Ogbono Soup',
+//         source: require('../../assets/local_item/ogbono.png'),
+       
+//         // screen: 'FoodScreen'
+//     },
+//     {
+//         id: 2,
+//         title: 'Amala',
+//         source: require('../../assets/local_item/Amala.png'),
 
-  const handleScreenPress = (screen) => {
-    setActiveScreen(screen);
-    navigation.navigate(`${screen}Screen`);
-  };
+
+//         // screen: 'LocalDishesScreen'
+//     },
+//     {
+//         id: 3,
+//         title: 'Moi moi',
+//         source: require('../../assets/local_item/moi-moi.jpg'),
+       
+//         // screen: 'ContinentalScreen'
+//     },
+//     {
+//         id: 4,
+//         title: 'Asun',
+//         source: require('../../assets/local_item/Asun.png')
+//         // screen: 'DrinkScreen'
+//     },
+//     {
+//         id: 5,
+//         title: 'Banga SOup',
+//         source: require('../../assets/local_item/banga.png'),
+//         // screen: 'DrinkScreen'
+//     },
+//     {
+//         id: 6,
+//         title: 'Afang Soup',
+//         source: require('../../assets/local_item/Afang.png'),
+//         // screen: 'DrinkScreen'
+//     },
+//     {
+//         id: 7,
+//         title: 'Suya',
+//         source: require('../../assets/local_item/suya.png'),
+//         // screen: 'DrinkScreen'
+//     },
+//     {
+//         id: 8,
+//         title: 'Akara',
+//         source: require('../../assets/local_item/akara.png'),
+//         // screen: 'DrinkScreen'
+//     },
+//     {
+//         id: 9,
+//         title: 'Kilishi',
+//         source: require('../../assets/local_item/kilishi.png'),
+//         // screen: 'DrinkScreen'
+//     },
+//     {
+//         id: 10,
+//         title: 'Egusi Soup',
+//         source: require('../../assets/local_item/egusi.png'),
+//         // screen: 'DrinkScreen'
+//     },
+// ]
+
+// const renderItem= ({item}) => (
+//   <View style={styles.imageContainer}>
+//       <Image
+//        source={item.source}
+//        style={styles.image}/>
+
+//         {/* <Image
+//        source={item.source}
+//        style={styles.image}/> */}
+
+//       <View style ={styles.title}>
+//       <Text style={{color:"white", fontSize:18, fontWeight:"800"}} >{item.title} </Text>
+//       </View>
+//   </View>
+
+// );
+
+// const [searchText, onChangeSearch] = useState('');
+// const [filteredData, setFilteredData] = useState([]);
+
+// useEffect(() => {
+//   const filtered = DATA.filter(item =>
+//     item.title.toLowerCase().includes(searchText.toLowerCase()),
+//   );
+//   if (searchText === '') {
+//     return setFilteredData(DATA);
+//   }
+
+//   setFilteredData(filtered);
+// }, [searchText]);
+
+  // const [activeScreen, setActiveScreen] = useState('All');
+
+  // const handleScreenPress = (screen) => {
+  //   setActiveScreen(screen);
+  //   navigation.navigate(`${screen}Screen`);
+  // };
   return (
     <SafeAreaView    style={{flex:1,  backgroundColor:COLORS.white}}>
        <StatusBar backgroundColor={COLORS.white} />
@@ -42,11 +140,15 @@ const LocalDishesScreen = () => {
                    style={{width:20, height:20, tintColor:'gray'}}/>   
                 </View>
         <TextInput style={{marginLeft:15, width: width*0.85, fontSize:12}}
-                  placeholder='Search dishes, restaurants or drinks'/>     
+                  placeholder='Search dishes, restaurants or drinks'
+                  // onChangeText={newText => onChangeSearch(newText)}
+                  />     
        
       </View>
             
       <View style={{ borderWidth: 0.3, borderColor: 'gray', marginTop: 25, alignSelf: 'center', width: width * 1 }} />
+
+
           <View style={{flexDirection:"row", marginTop:2}}>
               <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
                       <View style={{  
@@ -89,7 +191,13 @@ const LocalDishesScreen = () => {
                   </View>
                 </TouchableOpacity>
      </View>
-                    <LocalCategory/>
+                    <LocalCategory/> 
+                    {/* <FlatList
+    data={filteredData}
+    keyExtractor={(item) => item.id}
+    renderItem={renderItem}     
+    numColumns={2}  
+    /> */}
       
     </SafeAreaView>
   )
