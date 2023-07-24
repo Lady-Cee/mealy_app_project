@@ -44,7 +44,8 @@ import WineScreen from './src/screens/WineScreen'
 import JuiceScreen from './src/screens/JuiceScreen'
 import SodaScreen from './src/screens/SodaScreen';
 import FoodAndDrinkScreen from './src/screens/FoodAndDrinkScreen';
-
+import ConfirmationScreen from './src/screens/ConfirmationScreen';
+import CallScreen from './src/screens/CallScreen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -92,6 +93,8 @@ export default function App() {
       <Stack.Screen name='WineScreen' component={WineScreen}/>
       <Stack.Screen name='BeerScreen' component={BeerScreen}/>
       <Stack.Screen name='FoodAndDrinkScreen' component={FoodAndDrinkScreen}/>
+      <Stack.Screen name='ConfirmationScreen' component={ConfirmationScreen}/>
+      <Stack.Screen name='CallScreen' component={CallScreen}/>
       
       
     </Stack.Navigator>
