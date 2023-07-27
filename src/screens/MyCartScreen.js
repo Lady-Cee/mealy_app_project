@@ -23,7 +23,7 @@ const data = [
     price: 1500,
     rating: '4.8 ',
     star: require('../../assets/cartlist/star.png'),
-    image: require('../../assets/cartlist/ogbono.png'),
+    image: require('../../assets/cartlist/ogbono.jpg'),
     cartTotal: 1500,
     delivery: 500,
     promoDiscount: 0,
@@ -108,7 +108,7 @@ const MyCartScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <StatusBar backgroundColor={COLORS.white} />
-      <TouchableOpacity onPress={() => navigation.navigate('OgbonoScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('OgbonoDetailsScreen')}>
         <Image source={require('../../assets/cartlist/back-button.png')} style={{ width: 25, height: 25, marginLeft: 20, marginTop: 10 }} />
       </TouchableOpacity>
       <Text style={{ fontSize: 18, fontWeight: 'bold', marginTop: 20, alignSelf: 'center' }}>Your Food Cart</Text>

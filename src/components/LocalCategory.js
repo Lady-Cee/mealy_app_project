@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Dimensions,FlatList,TouchableOpacity, Image, } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 const {width, height} = Dimensions.get('screen');
 
 const imageList = [
@@ -7,91 +8,113 @@ const imageList = [
         id: 1,
         title: 'Ogbono Soup',
         source: require('../../assets/local_item/ogbono.png'),
-       
-        // screen: 'FoodScreen'
+        screen: 'OgbonoDetailsScreen'
     },
     {
         id: 2,
         title: 'Amala',
         source: require('../../assets/local_item/Amala.png'),
-
-
-        // screen: 'LocalDishesScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 3,
         title: 'Moi moi',
         source: require('../../assets/local_item/moi-moi.jpg'),
-       
-        // screen: 'ContinentalScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 4,
         title: 'Asun',
-        source: require('../../assets/local_item/Asun.png')
-        // screen: 'DrinkScreen'
+        source: require('../../assets/local_item/Asun.png'),
+        screen: 'LocalDishesScreen'
     },
     {
         id: 5,
-        title: 'Banga SOup',
+        title: 'Banga Soup',
         source: require('../../assets/local_item/banga.png'),
-        // screen: 'DrinkScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 6,
         title: 'Afang Soup',
         source: require('../../assets/local_item/Afang.png'),
-        // screen: 'DrinkScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 7,
         title: 'Suya',
         source: require('../../assets/local_item/suya.png'),
-        // screen: 'DrinkScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 8,
         title: 'Akara',
         source: require('../../assets/local_item/akara.png'),
-        // screen: 'DrinkScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 9,
         title: 'Kilishi',
         source: require('../../assets/local_item/kilishi.png'),
-        // screen: 'DrinkScreen'
+        screen: 'LocalDishesScreen'
     },
     {
         id: 10,
         title: 'Egusi Soup',
         source: require('../../assets/local_item/egusi.png'),
-        // screen: 'DrinkScreen'
+        screen: 'LocalDishesScreen'
     },
 ]
 
-const renderItem= ({item}) => (
-    <View style={styles.imageContainer}>
-        <Image
-         source={item.source}
-         style={styles.image}/>
+// const renderItem= ({item, navigation, navigate}) => (
 
-          {/* <Image
-         source={item.source}
-         style={styles.image}/> */}
+   
+//   <TouchableOpacity  onPress={() => navigation.navigate(item.screen)}>
+//       <View style={styles.imageContainer}>
+        
+       
+//             <Image
+//          source={item.source}
+//          style={styles.image}/>
+         
 
-        <View style ={styles.title}>
-        <Text style={{color:"white", fontSize:18, fontWeight:"800"}} >{item.title} </Text>
-        </View>
-    </View>
-  
-);
+//           {/* <Image
+//          source={item.source}
+//          style={styles.image}/> */}
+
+//         <View style ={styles.title}>
+//         <Text style={{color:"white", fontSize:18, fontWeight:"800"}} >{item.title} </Text>
+//         </View>
+//     </View>
+//     </TouchableOpacity>
+// );
 
 const LocalCategory = () => {
-  return (
+    const navigation = useNavigation("");
+     return (
     <FlatList
     data={imageList}
     keyExtractor={(item) => item.id}
-    renderItem={renderItem}     
+    renderItem={({item}) => (
+        <TouchableOpacity  onPress={() => navigation.navigate(item.screen)}>
+        <View style={styles.imageContainer}>
+          
+         
+              <Image
+           source={item.source}
+           style={styles.image}/>
+           
+  
+            {/* <Image
+           source={item.source}
+           style={styles.image}/> */}
+  
+          <View style ={styles.title}>
+          <Text style={{color:"white", fontSize:18, fontWeight:"800"}} >{item.title} </Text>
+          </View>
+      </View>
+      </TouchableOpacity>
+    )}     
     numColumns={2}  
     />
   )
@@ -117,7 +140,7 @@ const styles = StyleSheet.create({
     },
     title:{
         position:"absolute",
-        left:40,
+        left:30,
         top:50
     }
 })

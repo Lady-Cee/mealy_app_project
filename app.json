@@ -4,10 +4,10 @@
     "slug": "mealy_app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/meal-icon.png",
+    "icon": "./assets/mealicon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash-meal.png",
+      "image": "./assets/splashmeal.png",
       "resizeMode": "contain",
       "backgroundColor": "#4EA837"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/meal-icon.png",
+        "foregroundImage": "./assets/mealicon.png",
         "backgroundColor": "#4EA837"
       },
       "package": "com.ceecee23.mealy_app"

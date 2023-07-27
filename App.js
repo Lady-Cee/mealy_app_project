@@ -24,7 +24,6 @@ import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ReserveScreen from './src/screens/ReserveScreen';
-import OgbonoScreen from './src/screens/OgbonoScreen';
 import CheckoutScreen from './/src/screens/CheckoutScreen';
 import MyCartScreen from './src/screens/MyCartScreen';
 import PaymentScreen from './src/screens/PaymentScreen';
@@ -46,6 +45,10 @@ import SodaScreen from './src/screens/SodaScreen';
 import FoodAndDrinkScreen from './src/screens/FoodAndDrinkScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
 import CallScreen from './src/screens/CallScreen';
+import OgbonoDetailsScreen from './src/screens/OgbonoDetailsScreen';
+import OgbonoIngredients from './src/screens/OgbonoIngredients';
+import OgbonoDescription from './src/screens/OgbonoDescription';
+import OgbonoReviews from './src/screens/OgbonoReviews';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -72,7 +75,6 @@ export default function App() {
       <Stack.Screen name='ContinentalScreen' component={ContinentalScreen}/>
       <Stack.Screen name='DrinkScreen' component={DrinkScreen}/>
       <Stack.Screen name='ReserveScreen' component={ReserveScreen}/>
-      <Stack.Screen name='OgbonoScreen' component={OgbonoScreen}/>
       <Stack.Screen name='CheckoutScreen' component={CheckoutScreen}/>
       <Stack.Screen name='MyCartScreen' component={MyCartScreen}/>
       <Stack.Screen name='PaymentScreen' component={PaymentScreen}/>
@@ -95,6 +97,10 @@ export default function App() {
       <Stack.Screen name='FoodAndDrinkScreen' component={FoodAndDrinkScreen}/>
       <Stack.Screen name='ConfirmationScreen' component={ConfirmationScreen}/>
       <Stack.Screen name='CallScreen' component={CallScreen}/>
+      <Stack.Screen name='OgbonoDetailsScreen' component={OgbonoDetailsScreen}/>
+      <Stack.Screen name='OgbonoDescription' component={OgbonoDescription}/>
+      <Stack.Screen name='OgbonoIngredients' component={OgbonoIngredients}/>
+      <Stack.Screen name='OgbonoReviews' component={OgbonoReviews}/>
       
       
     </Stack.Navigator>
