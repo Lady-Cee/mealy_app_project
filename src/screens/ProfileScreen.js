@@ -4,9 +4,10 @@ import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { createRef } from 'react';
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated';
-import { useRef, createRef, useContext } from 'react';
+import { useRef, useContext } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useState } from 'react';
@@ -17,9 +18,33 @@ const COLORS = { primary: '#3b8132', white: '#fff', green: '#4EA837', gray: '#6c
 
 const ProfileScreen = () => {
   const navigation = useNavigation('');
+
+  const renderInner = () => {
+    <Text>Hello</Text>
+  }
+  const renderHeader = () => {
+    <View style={styles.header}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHandle}></View>
+      </View>
+    </View>
+  }
+
+  // const [bs, setBs] = useState(null);
+  // const [fall, setFall] = useState(new Animated.Value(1));
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
     <StatusBar backgroundColor={COLORS.white} />
+
+    {/* <BottomSheet
+      ref={bs}
+      snapPoints={[330, 0]}
+      renderContent={renderInner}
+      renderHeader={renderHeader}
+      initialSnap={1}
+      callbackNode={fall}
+      enabledGestureInteraction={true}
+    /> */}
     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             source={require('../../assets/cartlist/back-button.png')}
@@ -27,9 +52,9 @@ const ProfileScreen = () => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity >
+        <TouchableOpacity  >
           <View style={{ marginTop: 20, alignSelf: 'center' }}>
-            <Image source={require("../../assets/profilescreenlist/avatarImg.jpg")} style={{ width: 150, height: 150 }} />
+            <Image source={require("../../assets/profilescreenlist/avatarImg.png")} style={{ width: 150, height: 150, }} />
 
             <TouchableOpacity >
               <Feather
@@ -48,6 +73,11 @@ const ProfileScreen = () => {
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
+        
+      
+        <Text style={{alignSelf:"center", marginTop:-10, fontSize:14}}>Benny </Text>
+      
+        
 
         <TouchableOpacity onPress={() => navigation.navigate('ProfileDetailsScreen')}>
         <View style={{ alignSelf: 'flex-start', marginLeft: 50, flexDirection: 'row', marginTop: 40 }}>
